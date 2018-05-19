@@ -5,7 +5,7 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 router.get("/", function(req, res){
-    burger.allBurgers(function(data){
+    burger.selectAll(function(data){
         var hbsObject = {
             burgers: data
         };
@@ -30,7 +30,7 @@ router.put("/api/burgers/:id", function(req, res){
 
     console.log("condition", condition);
 
-    burger.update({ devoured: req.body.devoured}, condition, function(results) {
+    burger.updateOne({ devoured: req.body.devoured}, condition, function(results) {
         if(results.changedRows == 0) {
             return res.status(404).end();
         } else {
@@ -42,7 +42,7 @@ router.put("/api/burgers/:id", function(req, res){
 router.delete("/api/burgers/:id", function(req, res){
     var condition = "id = " + req.params.id;
 
-    burger.delete(condition, function(results){
+    burger.deleteOne(condition, function(results){
         if(results.affectedRows == 0) {
             return res.status(404).end();
         } else {
