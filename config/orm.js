@@ -37,7 +37,7 @@ function objToSql(ob) {
 // orm object for SQL functions
 var orm = {
     all: function(tableInput, cb){
-        var queryString = "SELECT * FROM" + tableInput + ";";
+        var queryString = " SELECT * FROM " + tableInput + ";";
         connection.query(queryString, function(err, results) {
             if(err){
                 throw err;
@@ -90,7 +90,7 @@ var orm = {
 
     // Delete attributes in the table
     delete: function(table, condition, cb){
-        var queryString = "DELETE FROM " + table;
+        var queryString = " DELETE FROM " + table;
 
         queryString += " WHERE ";
         queryString += condition;

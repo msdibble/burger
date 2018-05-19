@@ -2,10 +2,10 @@ var express = require("express");
 var router = express.Router();
 
 // Importing burger.js model to use the database functions
-var burger = require("../models/burger.js");
+var burgers = require("../models/burger.js");
 
 router.get("/", function(req, res){
-    burger.selectAll(function(data){
+    burgers.selectAll(function(data){
         var hbsObject = {
             burgers: data
         };
@@ -16,7 +16,7 @@ router.get("/", function(req, res){
 
 
 router.post("/api/burgers", function(req, res){
-    burger.insertOne([
+    burgers.insertOne([
         "burger_name"
     ], [
         req.body.name
@@ -30,7 +30,7 @@ router.put("/api/burgers/:id", function(req, res){
 
     console.log("condition", condition);
 
-    burger.updateOne({ devoured: req.body.devoured}, condition, function(results) {
+    burgers.updateOne({ devoured: req.body.devoured}, condition, function(results) {
         if(results.changedRows == 0) {
             return res.status(404).end();
         } else {
@@ -42,7 +42,7 @@ router.put("/api/burgers/:id", function(req, res){
 router.delete("/api/burgers/:id", function(req, res){
     var condition = "id = " + req.params.id;
 
-    burger.deleteOne(condition, function(results){
+    burgers.deleteOne(condition, function(results){
         if(results.affectedRows == 0) {
             return res.status(404).end();
         } else {
