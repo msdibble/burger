@@ -39,11 +39,11 @@ var orm = {
     all: function(tableInput, cb){
         var queryString = "SELECT * FROM" + tableInput + ";";
         connection.query(queryString, function(err, results) {
-            if(error){
-                console.log(error);
-            } else {
+            if(err){
+                throw err;
+            } 
                 cb(results);
-            }
+            
         });
     },
 
@@ -60,12 +60,12 @@ var orm = {
 
         console.log(queryString);
 
-        connection.query(queryString, vals, function(error, results){
-            if(error) {
-                console.log(error);
-            } else {
+        connection.query(queryString, vals, function(err, results){
+            if(err) {
+                throw err;
+            } 
                 cb(results);
-            }
+            
         });
     },
 
@@ -79,12 +79,12 @@ var orm = {
         queryString += condition;
 
         console.log(queryString);
-        connection.query(queryString, function(error, results){
-            if(error){
-                console.log(error);
-            } else {
+        connection.query(queryString, function(err, results){
+            if(err){
+                throw err;
+            } 
                 cb(results);
-            }
+            
         });
     },
 
@@ -96,12 +96,12 @@ var orm = {
         queryString += condition;
 
         console.log(queryString);
-        connection.query(queryString, function(error, results){
-            if(error){
-                console.log(error);
-            } else {
+        connection.query(queryString, function(err, results){
+            if(err){
+                throw err;
+            } 
                 cb(results);
-            }
+            
         });
     }
 };
