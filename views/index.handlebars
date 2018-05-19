@@ -2,7 +2,7 @@
 
 
 <h2>Add a Burger</h2>
-<form class="create-form">
+<form class="create-update-form">
     
     <div class="form-group">
         <label for="burgName">Burger Name:</label>
@@ -22,7 +22,7 @@
 
                 <form action="/{{this.id}}?_method=PUT" method="POST">
                     <input type="hidden" name="devoured" value="true">
-                    <button type="submite">Devour</button>
+                    <button type="submit">Devour</button>
                 </form>
             {{/unless}}
         {{/each}}
