@@ -1,4 +1,5 @@
 var express = require("express");
+var bodyParser = require("body-parser");
 var router = express.Router();
 
 // Importing burger.js model to use the database functions

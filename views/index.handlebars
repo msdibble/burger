@@ -1,48 +1,58 @@
-<h1>Burgers</h1>
+<div class="container" style = "padding: 100px;">
+    <div class="burgerForm" style="text-align:center;">
 
+        <h1 style="font-family:cursive; font-weight:bolder; font-size:50px; color:white;">Burgers</h1>
+        <br>
+        <br>
+        <img src="assets/img/burger.jpg">
+        <br>
+        <br>
+        <h1 style="font-family:cursive; font-weight:bolder; font-size:50px; color:white;">Add a Burger</h1>
+        <br>
+        <br>
 
-<h2>Add a Burger</h2>
-<form class="create-update-form">
-    
-    <div class="form-group">
-        <label for="burgName">Burger Name:</label>
-        <input type="text", id="burgName" name="burgerName">
+        <form class="create-update-form">
+            <label for="burgName" style="font-family:cursive; font-weight:bolder; color:white;">Burger Name:</label>
+            <input type="text", id="burgName" name="burgerName">
+            <button type="submit" style="font-family:cursive; font-weight:bolder;">Add a New Burger</button>
+        </form>
+        <br>
+        <br>
     </div>
-    <button type="submit">Add a New Burger</button>
 
-</form>
+    <div id="newBurgers" style="font-family:cursive; font-weight:bolder; color:white;">
+        <h2 style="font-family:cursive; font-weight:bolder; color:white;"><u>Undevoured Burgers</u></h2>
+        <ul>
 
-<div id="newBurgers">
-    <h2>Undevoured Burgers</h2>
-
-    <ul>
         {{#each burgers}}
             {{#unless this.devoured}}
                 {{this.burger_name}}
+       
 
-                <form action="/{{this.id}}?_method=PUT" method="POST">
+                <form action="/{{this.id}}?_method=PUT" method="POST" style="display:flex; flex-direction:column;">
                     <input type="hidden" name="devoured" value="true">
-                    <button type="submit">Devour</button>
+                    <button type="submit" style="font-family:cursive; font-weight:bolder;">Devour</button>
                 </form>
             {{/unless}}
         {{/each}}
-    </ul>
+        </ul>
+    </div>
 
-</div>
-
-<div id="eatenBurgers">
-    <h2>Devoured Burgers</h2>
-
-    <ul>
-        {{#each}}
+    <div id="eatenBurgers">
+        <h2 style="font-family:cursive; font-weight:bolder; color:white;"><u>Devoured Burgers</u></h2>        
+        <ul>
+        {{#each burgers}}
             {{#if this.devoured}}
                 {{this.burger_name}}
 
                 <form action="/{{this.id}}?_method=PUT" method="POST">
                     <input type="hidden" name="devoured" value="false">
-                    <button type="submit">Uneat da Burger</button>
+                    <button type="submit" style="font-family:cursive; font-weight:bolder;">Uneat da Burger</button>
                 </form>
             {{/if}}
         {{/each}}
     </ul>
+    </div>
 </div>
+
+

@@ -9,7 +9,7 @@ var app = express();
 app.use(express.static("public"));
 
 // Parse full objects
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Parse json
 app.use(bodyParser.json());
@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 // Requrie handlebars package
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "main" })); // Display the main.handlebars page
 app.set("view engine", "handlebars");
 
 // Importing the routes
