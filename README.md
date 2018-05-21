@@ -8,4 +8,4 @@ After hitting the "Devour" button, it moves to the "Devoured Burgers" section.
 
 ![image](https://user-images.githubusercontent.com/32345214/40265572-d53f643e-5b08-11e8-9ec6-b1066d745062.png)
 
-![image](https://user-images.githubusercontent.com/32345214/40269333-417683b6-5b4b-11e8-9a2e-74a5e5447bf1.png)
+![image](https://user-images.githubusercontent.com/32345214/40288717-882abdda-5c82-11e8-8309-56cda586b2d3.png)
