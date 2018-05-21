@@ -24,7 +24,7 @@
             event.peventDefault();
 
             var newBurger = {
-                name: $("#burgName").val().trim(),
+                burger_name: $("#burgName").val().trim(),
                 devoured: $("[name=devoured]:checked").val().trim()
             };
 
