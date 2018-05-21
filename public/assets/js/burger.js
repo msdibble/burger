@@ -1,4 +1,3 @@
-$(document).ready(function(){
     $(function(){
         $(".change-devoured").on("click", function(event){
             var id = $(this).data("id");
@@ -37,9 +36,9 @@ $(document).ready(function(){
                 function(){
                     console.log("created new burger");
 
-                    location.reload;
+                    location.reload();
                 }
             )
         });
     });  
-}); 
+ 

@@ -3,10 +3,10 @@ var bodyParser = require("body-parser");
 var router = express.Router();
 
 // Importing burger.js model to use the database functions
-var burgers = require("../models/burger.js");
+var burger = require("../models/burger.js");
 
 router.get("/", function(req, res){
-    burgers.selectAll(function(data){
+    burger.all(function(data){
         var hbsObject = {
             burgers: data
         };
@@ -17,7 +17,7 @@ router.get("/", function(req, res){
 
 
 router.post("/api/burgers", function(req, res){
-    burgers.insertOne([
+    burger.create([
         "burger_name"
     ], [
         req.body.name
@@ -26,12 +26,12 @@ router.post("/api/burgers", function(req, res){
     });
 });
 
-router.put("/api/burgers/:id", function(req, res){
+router.put("/api/burgers/eat/:id", function(req, res){
     var condition = "id = " + req.params.id;
 
     console.log("condition", condition);
 
-    burgers.updateOne({ devoured: req.body.devoured}, condition, function(results) {
+    burger.update({ devoured: req.body.devoured}, condition, function(results) {
         if(results.changedRows == 0) {
             return res.status(404).end();
         } else {
@@ -40,10 +40,10 @@ router.put("/api/burgers/:id", function(req, res){
     });
 });
 
-router.delete("/api/burgers/:id", function(req, res){
+router.delete("/api/burgers/delete/:id", function(req, res){
     var condition = "id = " + req.params.id;
 
-    burgers.deleteOne(condition, function(results){
+    burger.delete(condition, function(results){
         if(results.affectedRows == 0) {
             return res.status(404).end();
         } else {
